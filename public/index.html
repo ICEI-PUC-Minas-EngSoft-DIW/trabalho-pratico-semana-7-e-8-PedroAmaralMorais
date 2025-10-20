@@ -1,13 +1,81 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="app.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apostila - Coleção de Desenhos</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Olá mundo</h1>
+
+  <header class="bg-light py-3 border-bottom">
+    <nav class="container d-flex justify-content-center">
+      <ul class="nav">
+        <li class="nav-item"><a class="nav-link text-dark" href="#inicio">Início</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="#sobre">Sobre</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="#galeria">Galeria</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="#contato">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <section class="text-center py-5 bg-light">
+      <img src="logo.png" alt="Logo Apostila" class="img-fluid mb-4">
+      <h1 class="text-dark">Bem-vindo ao Apostila</h1>
+      <p class="text-dark fs-5">Um espaço dedicado à arte e à criatividade. Explore e conheça nossos incríveis desenhos!</p>
+    </section>
+
+    <section id="galeria" class="container py-5">
+      <h2 class="text-center mb-4 border-bottom border-3 pb-2">Galeria de Desenhos</h2>
+      <div class="row g-4">
+        <div class="col-sm-6 col-md-4">
+          <div class="card h-100 border-light shadow-sm">
+            <img src="fantastico.jpg" class="card-img-top" alt="Quarteto Fantástico">
+            <div class="card-body">
+              <h3 class="card-title text-center">Quarteto Fantástico</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="card h-100 border-light shadow-sm">
+            <img src="peter.jpg" class="card-img-top" alt="Homem-Aranha">
+            <div class="card-body">
+              <h3 class="card-title text-center">Homem-Aranha</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-md-4">
+          <div class="card h-100 border-light shadow-sm">
+            <img src="sinal.jpg" class="card-img-top" alt="Batman">
+            <div class="card-body">
+              <h3 class="card-title text-center">Batman</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="sobre" class="bg-light py-5 text-center">
+      <div class="container">
+        <h2 class="mb-3">Sobre o Artista</h2>
+        <p>Conhecido como <strong>@bucaslelo</strong>, o artista combina talento e dedicação em cada ilustração. Seus traços transmitem emoção e criatividade.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contato" class="bg-light py-4 border-top">
+    <div class="container text-center">
+      <h3 class="mb-3">Redes Sociais</h3>
+      <ul class="nav justify-content-center mb-3">
+        <li class="nav-item"><a class="nav-link text-dark" href="https://x.com/bucaslelo" target="_blank">Twitter</a></li>
+        <li class="nav-item"><a class="nav-link text-dark" href="https://www.instagram.com/bucaslelo" target="_blank">Instagram</a></li>
+      </ul>
+      <p>© 2025 - Todos os direitos reservados a @bucaslelo.</p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

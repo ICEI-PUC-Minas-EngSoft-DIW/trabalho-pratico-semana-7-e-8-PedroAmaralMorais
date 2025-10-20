@@ -1,0 +1,29 @@
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background-color: #ECEFF1;
+  color: #37474F;
+}
+
+h1, h2, h3 {
+  color: #37474F;
+}
+
+section#galeria .card {
+  transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+}
+
+section#galeria .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+  border: 2px solid #FFF9C4;
+}
+
+section#sobre {
+  border-left: 6px solid #FFF9C4;
+  border-radius: 12px;
+}
+
+footer a:hover {
+  color: #FFF9C4;
+  text-decoration: underline;
+}
