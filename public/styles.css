@@ -18,9 +18,19 @@ section#galeria .card:hover {
   border: 2px solid #FFF9C4;
 }
 
-section#sobre {
+section#sobre-artistas {
   border-left: 6px solid #FFF9C4;
   border-radius: 12px;
+}
+
+.artista-biografia {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.artista-biografia h4 {
+  color: #37474F;
+  margin-bottom: 8px;
 }
 
 footer a:hover {
