@@ -4,7 +4,7 @@ body {
   color: #37474F;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
   color: #37474F;
 }
 
@@ -29,7 +29,6 @@ section#sobre-artistas {
 }
 
 .artista-biografia h4 {
-  color: #37474F;
   margin-bottom: 8px;
 }
 

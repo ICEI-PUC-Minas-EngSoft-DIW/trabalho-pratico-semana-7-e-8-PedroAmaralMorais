@@ -6,7 +6,7 @@ const artistas = [
       { titulo: "Homem-Aranha", imagem: "homemaranha.jpg", descricao: "Traços fluidos e cheios de energia mostrando o Amigão da Vizinhança com sua estética anos 80/90. Foco na perspectiva e na cor." },
       { titulo: "Batman", imagem: "batazul.jpg", descricao: "O Cavaleiro das Trevas em uma pose imponente, utilizando a clássica capa azul e cinza. A luz e a sombra foram trabalhadas para dar profundidade." }
     ],
-    bio: "Bucaslelo é um artista talentoso do coração de ouro e muito guerreiro. Em seu tempo livre, desenhar é sua maior paixão. Tem 20 anos de muita luta e cada desenho busca mostrar mais e mais evolução a cada apredendizado e erro buscando crescer"
+    bio: "Bucaslelo é um artista talentoso do coração de ouro e muito guerreiro. Em seu tempo livre, desenhar é sua maior paixão. Tem 20 anos de muita luta e cada desenho busca mostrar mais e mais evolução a cada aprendizado e erro buscando crescer"
   },
   {
     nome: "artistadeiagenerico",
@@ -15,7 +15,7 @@ const artistas = [
       { titulo: "Homem-Aranha", imagem: "iaranha.png", descricao: "Uma colagem de elementos clichês do Homem-Aranha, gerada rapidamente por algoritmos, sem atenção aos detalhes da anatomia ou composição." },
       { titulo: "Batman", imagem: "iabatman.png", descricao: "Uma representação robótica e sem vida do Batman. O uso exagerado de filtros digitais mostra a pressa e a falta de esforço criativo." }
     ],
-    bio: "Artistadeiagenerico é conhecido por ser um pouco preguiçoso e criar suas artes roubando dos outros. Sem criativade e sem esforço somente copiar e colar, esta fadado ao fracasso"
+    bio: "Artistadeiagenerico é conhecido por ser um pouco preguiçoso e criar suas artes roubando dos outros. Sem criatividade e sem esforço somente copiar e colar, está fadado ao fracasso"
   },
   {
     nome: "ronaldo",
@@ -61,13 +61,11 @@ function montarGaleria(artistaFiltro = null) {
       const artistName = document.createElement("p");
       artistName.className = "card-text text-muted mb-0";
       artistName.textContent = `por ${artista.nome}`;
-      
+
       cardBody.appendChild(cardTitle);
-      cardBody.appendChild(artistName); 
-      
+      cardBody.appendChild(artistName);
       card.appendChild(img);
       card.appendChild(cardBody);
-      
       link.appendChild(card);
       col.appendChild(link);
       container.appendChild(col);
@@ -95,39 +93,53 @@ function montarBiografias() {
   });
 }
 
-function carregarDetalhes() {
-    const params = new URLSearchParams(window.location.search);
-    const artistIndex = parseInt(params.get('artista'));
-    const artIndex = parseInt(params.get('arte'));
+function montarFiltro() {
+  const select = document.getElementById("select-artista");
+  artistas.forEach(artista => {
+    const option = document.createElement("option");
+    option.value = artista.nome;
+    option.textContent = artista.nome;
+    select.appendChild(option);
+  });
 
-    if (isNaN(artistIndex) || isNaN(artIndex) || 
-        artistIndex < 0 || artistIndex >= artistas.length ||
-        artIndex < 0 || artIndex >= artistas[artistIndex].artes.length) {
-        
-        alert("Item não encontrado! Redirecionando para a galeria.");
-        window.location.href = "index.html";
-        return;
-    }
-
-    const artista = artistas[artistIndex];
-    const arte = artista.artes[artIndex];
-
-    document.getElementById('titulo-arte').textContent = arte.titulo;
-    document.getElementById('imagem-arte').src = arte.imagem;
-    document.getElementById('imagem-arte').alt = arte.titulo;
-
-    document.getElementById('nome-artista').textContent = artista.nome;
-    document.getElementById('bio-artista').textContent = artista.bio;
-    // NOVO: Adiciona a descrição da obra
-    document.getElementById('descricao-obra').textContent = arte.descricao; 
+  select.addEventListener("change", () => {
+    const valor = select.value;
+    montarGaleria(valor || null);
+  });
 }
 
+function carregarDetalhes() {
+  const params = new URLSearchParams(window.location.search);
+  const artistIndex = parseInt(params.get('artista'));
+  const artIndex = parseInt(params.get('arte'));
+
+  if (isNaN(artistIndex) || isNaN(artIndex) ||
+      artistIndex < 0 || artistIndex >= artistas.length ||
+      artIndex < 0 || artIndex >= artistas[artistIndex].artes.length) {
+
+    alert("Item não encontrado! Redirecionando para a galeria.");
+    window.location.href = "index.html";
+    return;
+  }
+
+  const artista = artistas[artistIndex];
+  const arte = artista.artes[artIndex];
+
+  document.getElementById('titulo-arte').textContent = arte.titulo;
+  document.getElementById('imagem-arte').src = arte.imagem;
+  document.getElementById('imagem-arte').alt = arte.titulo;
+
+  document.getElementById('nome-artista').textContent = artista.nome;
+  document.getElementById('bio-artista').textContent = artista.bio;
+  document.getElementById('descricao-obra').textContent = arte.descricao;
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-    if (document.title === "Apostila - Coleção de Desenhos") {
-      montarGaleria();
-      montarBiografias();
-    } else if (document.title === "Detalhes do Desenho") {
-      carregarDetalhes();
-    }
+  if (document.title === "Apostila - Coleção de Desenhos") {
+    montarFiltro();
+    montarGaleria();
+    montarBiografias();
+  } else if (document.title === "Detalhes do Desenho") {
+    carregarDetalhes();
+  }
 });
